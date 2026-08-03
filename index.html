@@ -358,15 +358,7 @@
         letter-spacing: 0.045em;
         text-indent: 0.045em;
         line-height: 1;
-        background: linear-gradient(
-          180deg,
-          #fff 18%,
-          #f4aab8 55%,
-          #9f2241 100%
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+        color: var(--brand);
         filter: drop-shadow(0 0 42px rgba(232, 85, 111, 0.22));
       }
       #s1 .tagline {
@@ -2787,7 +2779,7 @@
               hctx.arc(px, py, rad, 0, 6.2832);
               hctx.fillStyle =
                 'rgba(' +
-                (depth > 0.55 ? '168,216,255' : '80,130,210') +
+                (depth > 0.55 ? '249,168,184' : '150,60,85') +
                 ',' +
                 a +
                 ')';
@@ -3398,7 +3390,7 @@
                 ix.arc(pr[0], pr[1], rad, 0, 6.2832);
                 ix.fillStyle =
                   'rgba(' +
-                  (near > 0.5 ? '168,216,255' : '90,140,215') +
+                  (near > 0.5 ? '249,168,184' : '160,66,92') +
                   ',' +
                   a +
                   ')';
@@ -3425,10 +3417,7 @@
               }
               ix.globalAlpha = 1;
               if (ta > 0) {
-                var gr = ix.createLinearGradient(0, tr.top, 0, tr.bottom);
-                gr.addColorStop(0.15, '#FFFFFF');
-                gr.addColorStop(0.6, '#f9a8b8');
-                gr.addColorStop(1, '#b23a56');
+                var gr = '#9f2241';
                 ix.font =
                   '700 ' +
                   tfs +
