@@ -1776,8 +1776,9 @@
 
       /* ---------- indication chips (02) ---------- */
       .chipwrap { display: flex; flex-wrap: wrap; gap: 9px; }
-      .chip { border: 1px solid var(--line2); padding: 9px 14px; font-size: 11.5px; letter-spacing: .06em;
-        color: var(--dim); background: rgba(44, 12, 23,.4); opacity: 0; }
+      .chip { border: 1px solid var(--line2); border-radius: 999px; padding: 12px 20px;
+        font-size: 13px; letter-spacing: .04em; color: var(--ink);
+        background: rgba(44, 12, 23,.55); opacity: 0; }
       .in .chip { animation: fadeup .5s var(--ease) var(--d) forwards; }
       .chipnote { margin-top: 16px; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--faint); }
 
@@ -2022,6 +2023,147 @@
       }
       .soundbtn.on { color: var(--ink); border-color: var(--ice); }
       .soundbtn.on .si::after { transform: scale(1); background: var(--ice); }
+    
+      /* ---------- 06 three-stage flow ---------- */
+      .flow {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 58px;
+      }
+      .flow::before {
+        content: '';
+        position: absolute;
+        left: 16%;
+        right: 16%;
+        top: 45px;
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--line2), transparent);
+      }
+      .fstep {
+        position: relative;
+        padding: 0 24px;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.8s var(--ease) var(--d),
+          transform 0.8s var(--ease) var(--d);
+      }
+      .slide.in .fstep { opacity: 1; transform: none; }
+      .fnum {
+        position: relative;
+        z-index: 1;
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 26px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-family: var(--serif);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--ice2);
+        border: 1px solid var(--line2);
+        background:
+          radial-gradient(circle at 50% 34%, rgba(159, 34, 65, 0.5), rgba(18, 6, 11, 0.95));
+        box-shadow: 0 0 40px rgba(232, 85, 111, 0.16);
+      }
+      .fstep.here .fnum {
+        border-color: var(--ice);
+        color: var(--ink);
+        box-shadow: 0 0 60px var(--glow);
+      }
+      .ftag {
+        display: block;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ice);
+        margin-bottom: 12px;
+      }
+      .ftitle {
+        display: block;
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 1.25;
+        color: var(--ink);
+      }
+      .fsub {
+        display: block;
+        margin-top: 13px;
+        font-size: 12.5px;
+        line-height: 1.7;
+        color: var(--dim);
+      }
+
+      /* ---------- 08 supply chain ---------- */
+      .chain {
+        position: relative;
+        margin-top: 34px;
+        padding-left: 22px;
+      }
+      .chain::before {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 8px;
+        bottom: 12px;
+        width: 1px;
+        background: linear-gradient(to bottom, var(--ice), rgba(232, 85, 111, 0.15));
+      }
+      .cnode {
+        position: relative;
+        padding: 0 0 22px;
+        opacity: 0;
+        transform: translateX(-12px);
+        transition:
+          opacity 0.7s var(--ease) var(--d),
+          transform 0.7s var(--ease) var(--d);
+      }
+      .cnode:last-child { padding-bottom: 0; }
+      .slide.in .cnode { opacity: 1; transform: none; }
+      .cdot {
+        position: absolute;
+        left: -22px;
+        top: 5px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 1px solid var(--ice);
+        box-shadow: 0 0 12px var(--glow);
+      }
+      .cnode:last-child .cdot { background: var(--ice); }
+      .ct {
+        display: block;
+        font-family: var(--serif);
+        font-size: 1.28rem;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1.2;
+      }
+      .cs {
+        display: block;
+        margin-top: 5px;
+        font-size: 12px;
+        color: var(--faint);
+        letter-spacing: 0.02em;
+      }
+
+      /* ---------- 11 the count carries the row ---------- */
+      #s11 .status .rcount {
+        margin-left: 12px;
+        padding: 0;
+        border: 0;
+        font-family: var(--serif);
+        font-size: 1.9rem;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--ice);
+        vertical-align: -4px;
+      }
     </style>
   </head>
   <body>
@@ -2283,10 +2425,8 @@
               Endorsed by the people<br />patients actually <em>trust.</em>
             </h2>
             <p class="lede rv d2">
-              Pharmacist Ko from Pharmabros, one of Korea's most-watched
-              pharmacist creators, along with a trusted network of pharmacists
-              and physicians, continuously delivers science-backed verification
-              content.
+              Pharmacist Ko of Pharmabros, plus a standing network of
+              pharmacists and physicians.
             </p>
             <div class="stats rv d3" style="margin-top: 36px">
               <div class="stat">
@@ -2358,35 +2498,24 @@
             Partner markets don't start from zero. HQ funds and runs the
             co-marketing pipeline from Seoul.
           </p>
-          <div class="pipeline rv d3">
-            <div class="pipe-node">
-              <span class="tag">Korea &middot; Origin</span>
-              <span class="t">Proven KOL Assets</span>
-              <ul>
-                <li>Pharmacist Ko, Content Creator</li>
-                <li>Physician verification content</li>
-                <li>Symposium &amp; clinical footage</li>
-              </ul>
+          <div class="flow rv d3">
+            <div class="fstep" style="--d: 0.35s">
+              <div class="fnum">01</div>
+              <span class="ftag">Korea &middot; Origin</span>
+              <span class="ftitle">Proven KOL assets</span>
+              <span class="fsub">Pharmacist Ko &amp; physician content, already made</span>
             </div>
-            <span class="pipe-link">&#10142;</span>
-            <div class="pipe-node">
-              <span class="tag">HQ &middot; Engine</span>
-              <span class="t">Co-Marketing Pipeline</span>
-              <ul>
-                <li>Localized content packages</li>
-                <li>Campaign design &amp; funding</li>
-                <li>Creator matching &amp; briefs</li>
-              </ul>
+            <div class="fstep here" style="--d: 0.5s">
+              <div class="fnum">02</div>
+              <span class="ftag">HQ &middot; Engine</span>
+              <span class="ftitle">Localised &amp; funded</span>
+              <span class="fsub">Briefs, packages, campaign budget from Seoul</span>
             </div>
-            <span class="pipe-link">&#10142;</span>
-            <div class="pipe-node">
-              <span class="tag">Your Market &middot; Launch</span>
-              <span class="t">Local Expert Voices</span>
-              <ul>
-                <li>Local physicians &amp; pharmacists</li>
-                <li>Local creators, briefed by HQ</li>
-                <li>Market-fit campaigns at launch</li>
-              </ul>
+            <div class="fstep" style="--d: 0.65s">
+              <div class="fnum">03</div>
+              <span class="ftag">Your market &middot; Launch</span>
+              <span class="ftitle">Local expert voices</span>
+              <span class="fsub">Your doctors, pharmacists, creators</span>
             </div>
           </div>
         </div>
@@ -2455,19 +2584,27 @@
               Korean raw material to finished formula, controlled end-to-end
               with Genocure. Spec disclosed, origin patented.
             </p>
-            <div class="emblems rv d3">
-              <span class="emblem">Genocure&reg; Process</span>
-              <span class="emblem">100% Domestic Sourcing</span>
-              <span class="emblem">End-to-End Control</span>
-            </div>
-            <div class="crystals rv d4" aria-hidden="true">
-              <div class="crystal"></div>
-              <div class="crystal"></div>
-              <div class="crystal"></div>
-              <div class="crystal"></div>
-              <div class="crystal"></div>
-              <div class="crystal"></div>
-              <div class="crystal"></div>
+            <div class="chain rv d3">
+              <div class="cnode" style="--d: 0.35s">
+                <span class="cdot"></span>
+                <span class="ct">Chum salmon</span>
+                <span class="cs">Patented origin assay</span>
+              </div>
+              <div class="cnode" style="--d: 0.47s">
+                <span class="cdot"></span>
+                <span class="ct">Genocure raw material</span>
+                <span class="cs">Derbiome&reg; PDRN, made in Korea</span>
+              </div>
+              <div class="cnode" style="--d: 0.59s">
+                <span class="cdot"></span>
+                <span class="ct">Freeze-dried</span>
+                <span class="cs">Low temperature, never bulk heat</span>
+              </div>
+              <div class="cnode" style="--d: 0.71s">
+                <span class="cdot"></span>
+                <span class="ct">PYDERIN formula</span>
+                <span class="cs">Filled and finished in-house</span>
+              </div>
             </div>
           </div>
           <div class="rv d3">
