@@ -1872,8 +1872,10 @@
       .slide.in .ctrack i { width: var(--w); }
       .cbar b { font-size: 14px; font-weight: 500; color: var(--faint); text-align: right; }
       .cbar.win b { color: var(--ice2); font-weight: 600; font-size: 16px; }
-      .drow { display: grid; grid-template-columns: 1fr auto 112px; align-items: center;
-        gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+      .drow { display: grid; grid-template-columns: 1fr auto auto 104px; align-items: center;
+        gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+      .drow .dcount { font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+        color: var(--faint); white-space: nowrap; }
       .drow:last-of-type { border-bottom: 0; }
       .drow .dl { font-size: 13px; color: var(--dim); }
       .dots { display: flex; gap: 8px; }
@@ -2688,32 +2690,36 @@
           </div>
           <div class="cmp-panel">
             <div class="chart-title">
-              <span>What each brand discloses</span><span>6 pharmacy PDRN creams</span>
+              <span>What each brand discloses</span><span>6 pharmacy PDRN products</span>
             </div>
             <div class="drow" style="--d: 0.50s">
               <span class="dl">Purity</span>
-              <span class="dots"><i class="on py"></i><i class="off"></i><i class="on"></i><i class="off"></i><i class="on"></i><i class="off"></i></span>
+              <span class="dots"><i class="on py"></i><i class="on"></i><i class="on"></i><i class="off"></i><i class="off"></i><i class="off"></i></span>
+              <span class="dcount">3 of 6</span>
               <b class="dv">99%</b>
             </div>
             <div class="drow" style="--d: 0.60s">
               <span class="dl">Molecular size</span>
               <span class="dots"><i class="on py"></i><i class="off"></i><i class="off"></i><i class="off"></i><i class="off"></i><i class="off"></i></span>
+              <span class="dcount">1 of 6</span>
               <b class="dv">97 kDa</b>
             </div>
             <div class="drow" style="--d: 0.70s">
-              <span class="dl">Clinical endpoints</span>
-              <span class="dots"><i class="on py"></i><i class="off"></i><i class="on"></i><i class="off"></i><i class="off"></i><i class="off"></i></span>
-              <b class="dv">9 studies</b>
+              <span class="dl">Clinical test items</span>
+              <span class="dots"><i class="on py"></i><i class="on"></i><i class="off"></i><i class="off"></i><i class="off"></i><i class="off"></i></span>
+              <span class="dcount">2 of 6</span>
+              <b class="dv">9</b>
             </div>
             <div class="drow" style="--d: 0.80s">
               <span class="dl">Heavy metals</span>
               <span class="dots"><i class="on py"></i><i class="off"></i><i class="off"></i><i class="off"></i><i class="off"></i><i class="off"></i></span>
+              <span class="dcount">1 of 6</span>
               <b class="dv">Not detected</b>
             </div>
             <div class="dlegend">
               <span><i class="on py"></i>PYDERIN</span>
-              <span><i class="on"></i>Discloses</span>
-              <span><i class="off"></i>Not disclosed</span>
+              <span><i class="on"></i>Also discloses</span>
+              <span><i class="off"></i>Not verifiable</span>
             </div>
           </div>
         </div>
@@ -2725,8 +2731,8 @@
           </div>
         </div>
         <div class="foot">
-          Korean pharmacy-channel comparison &middot; Dec 2025 &middot; full spec
-          table in the evidence pack
+          Korean pharmacy channel &middot; Dec 2025 retail &middot; &#8361;/ml and
+          &#8361;/g treated as equivalent &middot; full table in the evidence pack
         </div>
       </section>
 
