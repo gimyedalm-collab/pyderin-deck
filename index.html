@@ -937,13 +937,13 @@
       }
 
       /* ---------- S14 closing ---------- */
-      #s13 .wrap {
+      #s12 .wrap {
         text-align: center;
       }
-      #s13 h2 {
+      #s12 h2 {
         font-size: clamp(2.2rem, 5vw, 4.4rem);
       }
-      #s13 .contact-row {
+      #s12 .contact-row {
         display: flex;
         gap: 22px;
         justify-content: center;
@@ -1191,15 +1191,15 @@
         font-weight: 600; line-height: 1; text-shadow: 0 0 22px var(--glow); }
       .reelstat > span { font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
         color: var(--faint); line-height: 1.9; }
-      #s8 .chartbox { padding: 30px 34px 30px; }
-      #s8 .specrow > div { padding: 20px 12px; }
-      #s8 .specrow b { font-size: 2.1rem; }
-      #s8 .specrow > div:nth-child(3) b { font-size: 1.45rem; white-space: nowrap; }
-      #s8 .specrow span { font-size: 10px; letter-spacing: .18em; }
-      #s8 .iplist { gap: 16px; }
-      #s8 .iplist li { padding: 10px 0 10px 18px; border-left-width: 3px; }
-      #s8 .ipno { font-size: 11px; letter-spacing: .18em; font-weight: 600; }
-      #s8 .ipt { font-size: 14.5px; color: var(--ink); }
+      #s7 .chartbox { padding: 30px 34px 30px; }
+      #s7 .specrow > div { padding: 20px 12px; }
+      #s7 .specrow b { font-size: 2.1rem; }
+      #s7 .specrow > div:nth-child(3) b { font-size: 1.45rem; white-space: nowrap; }
+      #s7 .specrow span { font-size: 10px; letter-spacing: .18em; }
+      #s7 .iplist { gap: 16px; }
+      #s7 .iplist li { padding: 10px 0 10px 18px; border-left-width: 3px; }
+      #s7 .ipno { font-size: 11px; letter-spacing: .18em; font-weight: 600; }
+      #s7 .ipt { font-size: 14.5px; color: var(--ink); }
       .status .rcount {
         display: inline-block;
         margin-left: 10px;
@@ -1403,7 +1403,10 @@
       .soundbtn.on { color: var(--ink); border-color: var(--ice); }
       .soundbtn.on .si::after { transform: scale(1); background: var(--ice); }
     
-      /* ---------- 06 three-stage flow ---------- */
+      #s5 .orbit { max-width: 340px; }
+      #s5 .flow { margin-top: 40px; }
+
+      /* ---------- 05 three-stage flow ---------- */
       .flow {
         position: relative;
         display: grid;
@@ -1532,7 +1535,7 @@
       }
 
       /* ---------- 11 the count carries the row ---------- */
-      #s11 .status .rcount {
+      #s10 .status .rcount {
         margin-left: 12px;
         padding: 0;
         border: 0;
@@ -1626,7 +1629,7 @@
         .dots i { width: 9px; height: 9px; }
         .matrix-note { gap: 6px 16px; font-size: 9.5px; margin-top: 16px; }
         /* s09 is the only slide with a footnote; keep it clear of the content */
-        #s9 { padding-bottom: 150px; }
+        #s8 { padding-bottom: 150px; }
 
         /* 10 */
         .metrics { grid-template-columns: repeat(3, 1fr); }
@@ -1720,7 +1723,7 @@
     <div id="progress"></div>
     <nav id="sideNav" aria-label="Slides"></nav>
     <div id="brandTag">PYDERIN &middot; Global B2B</div>
-    <div id="pageNo"><b>01</b> / 13</div>
+    <div id="pageNo"><b>01</b> / 12</div>
 
     <main id="deck">
       <!-- 01 COVER -->
@@ -1954,42 +1957,40 @@
       </section>
 
       <!-- 05 EXPERT NETWORK -->
-      <section
-        class="slide"
-        id="s5"
-        data-title="Expert Network"
-        data-helix=".3"
-      >
+            <!-- 05 KOL ENGINE -->
+      <section class="slide" id="s5" data-title="KOL Engine" data-helix=".3">
         <div class="halo"></div>
-        <div class="wrap split">
-          <div>
-            <div class="eyebrow rv">
-              <span>Expert Influencer Network</span><span class="no">/ 05</span>
-            </div>
-            <h2 class="rv d1">
-              Endorsed by the people<br />patients actually <em>trust.</em>
-            </h2>
-            <p class="lede rv d2">
-              Pharmacist Ko of Pharmabros, plus a standing network of
-              pharmacists and physicians.
-            </p>
-            <div class="stats rv d3" style="margin-top: 36px">
-              <div class="stat">
-                <div class="num">KOL</div>
-                <div class="cap">
-                  Pharmacist &amp; physician<br />creator pipeline
+        <div class="wrap">
+          <div class="split" style="align-items: center">
+            <div>
+              <div class="eyebrow rv">
+                <span>Expert Network &amp; Cross-Border Support</span
+                ><span class="no">/ 05</span>
+              </div>
+              <h2 class="rv d1">
+                Our KOL engine<br />ships <em>with the product.</em>
+              </h2>
+              <p class="lede rv d2">
+                Pharmacist Ko of Pharmabros, plus a standing network of
+                pharmacists and physicians &mdash; funded and run from Seoul.
+              </p>
+              <div class="stats rv d3" style="margin-top: 30px">
+                <div class="stat">
+                  <div class="num">KOL</div>
+                  <div class="cap">
+                    Pharmacist &amp; physician<br />creator pipeline
+                  </div>
+                </div>
+                <div class="stat">
+                  <div class="num">Always<small>-on</small></div>
+                  <div class="cap">
+                    Verification content,<br />not one-off ads
+                  </div>
                 </div>
               </div>
-              <div class="stat">
-                <div class="num">Always<small>-on</small></div>
-                <div class="cap">
-                  Verification content,<br />not one-off ads
-                </div>
-              </div>
             </div>
-          </div>
-          <div class="rv d2">
-            <div class="orbit" aria-label="PYDERIN expert network">
+            <div class="rv d2">
+              <div class="orbit" aria-label="PYDERIN expert network">
               <svg class="orbit-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                 <line x1="50" y1="50" x2="90" y2="50" style="--d:0.35s" />
                 <line x1="50" y1="50" x2="70" y2="84.6" style="--d:0.48s" />
@@ -2021,29 +2022,8 @@
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- 06 CROSS-BORDER -->
-      <section
-        class="slide"
-        id="s6"
-        data-title="Cross-Border Support"
-        data-helix=".3"
-      >
-        <div class="halo"></div>
-        <div class="wrap">
-          <div class="eyebrow rv">
-            <span>Cross-Border Support</span><span class="no">/ 06</span>
           </div>
-          <h2 class="rv d1">
-            Our KOL engine<br />ships <em>with the product.</em>
-          </h2>
-          <p class="lede rv d2">
-            Partner markets don't start from zero. HQ funds and runs the
-            co-marketing pipeline from Seoul.
-          </p>
-          <div class="flow rv d3">
+          <div class="flow rv d4">
             <div class="fstep" style="--d: 0.35s">
               <div class="fnum">01</div>
               <span class="ftag">Korea &middot; Origin</span>
@@ -2066,12 +2046,11 @@
         </div>
       </section>
 
-      <!-- 07 DUAL LINES -->
-      <section class="slide" id="s7" data-title="Dual Lines" data-helix=".35">
+<section class="slide" id="s6" data-title="Dual Lines" data-helix=".35">
         <div class="halo"></div>
         <div class="wrap">
           <div class="eyebrow rv">
-            <span>Dual Professional Lines</span><span class="no">/ 07</span>
+            <span>Dual Professional Lines</span><span class="no">/ 06</span>
           </div>
           <h2 class="rv d1">
             Two lines. Two counters.<br /><em>One standard.</em>
@@ -2107,7 +2086,7 @@
       <!-- 08 RAW MATERIAL & MANUFACTURING -->
       <section
         class="slide"
-        id="s8"
+        id="s7"
         data-title="Raw Material"
         data-helix=".5"
       >
@@ -2119,10 +2098,10 @@
           <div>
             <div class="eyebrow rv">
               <span>Raw Material &amp; Manufacturing</span
-              ><span class="no">/ 08</span>
+              ><span class="no">/ 07</span>
             </div>
             <h2 class="rv d1">
-              Certified Korean origin.<br /><em>Species verified</em>, spec
+              Certified Korean origin.<br /><em>Freeze-dried</em>, spec
               disclosed.
             </h2>
             <p class="lede rv d2">
@@ -2143,7 +2122,7 @@
               <div class="cnode" style="--d: 0.59s">
                 <span class="cdot"></span>
                 <span class="ct">Freeze-dried</span>
-                <span class="cs">Low-temperature drying</span>
+                <span class="cs">Stable powder, controlled spec</span>
               </div>
               <div class="cnode" style="--d: 0.71s">
                 <span class="cdot"></span>
@@ -2185,14 +2164,14 @@
       <!-- 09 COMPETITIVE MATRIX -->
       <section
         class="slide"
-        id="s9"
+        id="s8"
         data-title="Competitive Matrix"
         data-helix=".25"
       >
         <div class="halo"></div>
         <div class="wrap">
           <div class="eyebrow rv">
-            <span>Competitive Matrix</span><span class="no">/ 09</span>
+            <span>Competitive Matrix</span><span class="no">/ 08</span>
           </div>
           <h2 class="kinetic">Side by side,<br />it isn't <em>close.</em></h2>
           <div class="cmp rv d2">
@@ -2288,14 +2267,14 @@
       <!-- 10 PAPERS -->
       <section
         class="slide"
-        id="s10"
+        id="s9"
         data-title="Clinical Papers"
         data-helix=".3"
       >
         <div class="halo"></div>
         <div class="wrap">
           <div class="eyebrow rv">
-            <span>Clinical Papers Library</span><span class="no">/ 10</span>
+            <span>Clinical Papers Library</span><span class="no">/ 09</span>
           </div>
           <h2 class="rv d1">
             The science is <em>published</em>,<br />not promised.
@@ -2344,7 +2323,7 @@
       <!-- 11 GLOBAL FOOTPRINT -->
       <section
         class="slide"
-        id="s11"
+        id="s10"
         data-title="Global Footprint"
         data-helix=".2"
       >
@@ -2352,7 +2331,7 @@
         <div class="wrap split">
           <div>
             <div class="eyebrow rv">
-              <span>Current Global Footprint</span><span class="no">/ 11</span>
+              <span>Current Global Footprint</span><span class="no">/ 10</span>
             </div>
             <h2 class="rv d1">Already selling on<br /><em>four continents.</em></h2>
             <p class="lede rv d2">
@@ -2396,14 +2375,14 @@
       <!-- 12 EXPANSION PLAN -->
       <section
         class="slide"
-        id="s12"
+        id="s11"
         data-title="Expansion Plan"
         data-helix=".3"
       >
         <div class="halo"></div>
         <div class="wrap">
           <div class="eyebrow rv">
-            <span>Global Expansion Plan</span><span class="no">/ 12</span>
+            <span>Global Expansion Plan</span><span class="no">/ 11</span>
           </div>
           <h2 class="rv d1">Two tracks.<br />One <em>flexible</em> door in.</h2>
           <div class="tracks">
@@ -2448,7 +2427,7 @@
       <!-- 13 CLOSING -->
       <section
         class="slide"
-        id="s13"
+        id="s12"
         data-title="Resource Center"
         data-helix=".9"
       >
@@ -2456,7 +2435,7 @@
         <div class="wrap">
           <div class="eyebrow rv" style="justify-content: center">
             <span>Closing &middot; Resource Center</span
-            ><span class="no">/ 13</span>
+            ><span class="no">/ 12</span>
           </div>
           <h2 class="kinetic">
             Own your market<br /><em>before someone else does.</em>
@@ -2608,7 +2587,7 @@
 
         /* ---------- split-letter headlines (s2, s9, s13) ---------- */
         if (!reduced) {
-          ['#s2 h2', '#s9 h2', '#s13 h2'].forEach(function (sel) {
+          ['#s2 h2', '#s8 h2', '#s12 h2'].forEach(function (sel) {
             var el = document.querySelector(sel);
             if (!el) return;
             var tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
