@@ -1629,6 +1629,10 @@
       }
 
       /* split-letter headlines */
+      h2 .wd {
+        display: inline-block;
+        white-space: nowrap;
+      }
       h2 .ch {
         display: inline-block;
         opacity: 0;
@@ -2169,6 +2173,105 @@
         line-height: 1;
         color: var(--ice);
         vertical-align: -4px;
+      }
+    
+      /* ---------- phones ---------- */
+      @media (max-width: 760px) {
+        /* tall slides grow and scroll instead of being cut off */
+        .slide { overflow: visible; padding: 74px 22px 86px; }
+        .slide .halo { display: none; }
+        /* these are fixed, so on a scrolling phone they sit on top of the
+           content of any slide taller than the screen */
+        #brandTag { display: none; }
+        #pageNo { bottom: 14px; right: 16px; padding: 5px 10px; border-radius: 999px;
+          background: rgba(18, 8, 13, .72); -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px); }
+        /* s04/s08/s10 set their column ratio inline, so this has to outrank it */
+        .wrap.split { grid-template-columns: 1fr !important; }
+        /* the section is a flex row, so the foot has to stay out of the flow */
+        .foot { left: 22px; right: 22px; bottom: 58px; width: auto;
+          transform: none; white-space: normal; line-height: 1.7; }
+
+        /* cover: the film is 16:9, so give it a 16:9 block instead of
+           cropping it to a portrait slot, and keep the lockup underneath */
+        #s1 { flex-direction: column; justify-content: center; gap: 30px; }
+        .coverbg {
+          position: relative;
+          inset: auto;
+          order: 1;
+          width: 100%;
+          height: auto;
+          aspect-ratio: 16 / 9;
+          border: 1px solid var(--line2);
+        }
+        .coverscrim { display: none; }
+        #s1 .wrap { order: 2; }
+        #s1.filmed .wrap { opacity: 1; transform: none; filter: none; pointer-events: auto; }
+        #s1 .cover-rule { display: none; }
+        #s1 .tagline { font-size: 1.05rem; margin-top: 18px; }
+        #s1 .k-eyebrow { margin-bottom: 20px; }
+        #s1 .scrollcue { display: none; }
+        .soundbtn { position: relative; right: auto; bottom: auto; order: 3;
+          opacity: 1; pointer-events: auto; align-self: center; }
+
+        /* 04 */
+        .reel { gap: 8px; }
+        .shortform.lead { transform: none; }
+        .shortform figcaption { font-size: 8px; letter-spacing: .12em; padding: 16px 6px 6px; }
+
+        /* 05 */
+        .orbit { max-width: 300px; }
+
+        /* 06 — stack the flow, run the connector down instead of across */
+        .flow { grid-template-columns: 1fr; gap: 26px; margin-top: 34px; }
+        .flow::before {
+          left: 50%; right: auto; top: 6px; bottom: 6px; width: 1px; height: auto;
+          background: linear-gradient(to bottom, transparent, var(--line2), transparent);
+        }
+        .fstep { padding: 0; }
+        .fnum { width: 64px; height: 64px; font-size: 1.5rem; margin-bottom: 14px; }
+        .ftitle { font-size: 1.25rem; }
+
+        /* 08 */
+        .specrow { grid-template-columns: 1fr; }
+
+        /* 09 */
+        .cmp { grid-template-columns: 1fr; gap: 18px; margin-top: 30px; }
+        .cmp-panel { padding: 20px 18px 18px; }
+        .cbar { grid-template-columns: 72px 1fr 48px 50px; gap: 8px; padding: 8px 0; }
+        .cbar .cn { font-size: 9px; letter-spacing: .06em; }
+        .ctrack { height: 13px; }
+        .cbar b { font-size: 11.5px; }
+        .cbar.win b { font-size: 12.5px; }
+        .cbar .cper { font-size: 9px; }
+        .cbar .cper em { display: none; }
+        .drow {
+          grid-template-columns: 1fr auto;
+          grid-template-areas: "l v" "d c";
+          gap: 7px 12px; padding: 13px 0;
+        }
+        .drow .dl { grid-area: l; }
+        .drow .dv { grid-area: v; }
+        .drow .dots { grid-area: d; }
+        .drow .dcount { grid-area: c; text-align: right; }
+        .dots i { width: 9px; height: 9px; }
+        .matrix-note { gap: 6px 16px; font-size: 9.5px; margin-top: 16px; }
+        /* s09 is the only slide with a footnote; keep it clear of the content */
+        #s9 { padding-bottom: 150px; }
+
+        /* 10 */
+        .metrics { grid-template-columns: repeat(3, 1fr); }
+        .metrics > div { padding: 18px 6px; }
+        .metrics b { font-size: 1.45rem; }
+        .metrics span { font-size: 8.5px; letter-spacing: .1em; }
+        .plink { padding: 16px 16px; }
+        .plink .pt { font-size: 1.02rem; }
+
+        /* 11 */
+        #globe { width: 100%; height: auto; max-width: 300px; }
+
+        /* 13 */
+        .next-steps { gap: 10px 14px; margin-top: 30px; }
       }
     </style>
   </head>
@@ -3078,17 +3181,25 @@
             var idx = 0;
             nodes.forEach(function (n) {
               var frag = document.createDocumentFragment();
-              n.textContent.split('').forEach(function (chr) {
-                if (chr.trim() === '') {
-                  frag.appendChild(document.createTextNode(chr));
+              /* letters are inline-block, so they must be grouped per word or
+                 a narrow screen will break the line mid-word */
+              n.textContent.split(/(\s+)/).forEach(function (tok) {
+                if (tok === '') return;
+                if (!tok.trim()) {
+                  frag.appendChild(document.createTextNode(tok));
                   return;
                 }
-                var sp = document.createElement('span');
-                sp.className = 'ch';
-                sp.textContent = chr;
-                sp.style.transitionDelay = (0.1 + idx * 0.03).toFixed(2) + 's';
-                idx++;
-                frag.appendChild(sp);
+                var word = document.createElement('span');
+                word.className = 'wd';
+                tok.split('').forEach(function (chr) {
+                  var sp = document.createElement('span');
+                  sp.className = 'ch';
+                  sp.textContent = chr;
+                  sp.style.transitionDelay = (0.1 + idx * 0.03).toFixed(2) + 's';
+                  idx++;
+                  word.appendChild(sp);
+                });
+                frag.appendChild(word);
               });
               n.parentNode.replaceChild(frag, n);
             });
